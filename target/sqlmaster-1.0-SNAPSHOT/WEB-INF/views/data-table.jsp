@@ -105,7 +105,7 @@
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">Data Table</strong>
-                            <a href="#" ><button style="float: right" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; ADD</button></a>
+                            <a href="/admin/createLSpage?id=${database.id}" ><button style="float: right" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; ADD</button></a>
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -125,11 +125,11 @@
                                         <td>${lesson.id}</td>
                                         <td>${lesson.nameLesson}</td>
 <%--                                        <td class="text-flow"><p>${lesson.tutorial}</p></td>--%>
-                                        <td>${databaseName}</td>
+                                        <td>${database.name}</td>
                                         <td>
                                             <a href="#" class="fa fa-eye"></a>
-                                            <a href="#" class="fa fa-pencil"></a>
-                                            <a href="#" class="fa fa-trash"></a>
+                                            <a href="/admin/updateLSpage?id=${lesson.id}" class="fa fa-pencil"></a>
+                                            <a onclick="return confirm('Bạn có muốn xóa không?')" href="/del?id=${lesson.id}" class="fa fa-trash"></a>
                                         </td>
                                     </tr>
 

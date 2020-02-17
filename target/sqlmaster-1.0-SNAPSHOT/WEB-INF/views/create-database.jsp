@@ -1,5 +1,5 @@
 <%@include file="/common/taglib.jsp"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="UTF-8" %>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -7,6 +7,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
+    <meta content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home-Admin SQLMaster</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
@@ -99,11 +100,11 @@
                 <div class="col-lg-6 center">
                     <div class="card">
                         <div class="card-body card-block ">
-                            <form:form action="/api/insert" method="post" class="form-horizontal" modelAttribute="database">
+                            <form:form action="/api/insert" method="get" class="form-horizontal" modelAttribute="database">
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="db_name" class=" form-control-label">Name</label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="db_name" name="name" placeholder="Enter database name..." class="form-control" value="${name}"></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="db_name" name="name" placeholder="Enter database name..." class="form-control"></div>
                                 </div>
                                 <div class="center" style="margin-left: 33%">
                                     <button type="submit" class="btn btn-primary btn-sm">
@@ -113,7 +114,6 @@
                                         <i class="fa fa-arrow-left"></i> Back
                                     </button>
                                 </div>
-                                <div class="col-12 col-md-9"><input type="text" id="db_ID" name="id" placeholder="Enter database id..." class="form-control" hidden value="${id}" ></div>
                             </form:form>
                         </div>
 

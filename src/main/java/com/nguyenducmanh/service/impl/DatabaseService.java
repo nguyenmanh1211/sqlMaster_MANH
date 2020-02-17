@@ -45,4 +45,9 @@ public class DatabaseService implements IDatabaseService {
         databases.setName(databaseRequest.getName());
         databasesRepository.save(databases);
     }
+
+    @Override
+    public Databases findDatabasesByName(String name) {
+        return databasesRepository.findDatabasesByName(name);
+    }
 }

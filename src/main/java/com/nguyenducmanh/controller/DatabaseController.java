@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/api")
+@RequestMapping(value = "/api",produces = "text/plain;charset=UTF-8")
 public class DatabaseController {
     private IDatabaseService databaseService;
 
@@ -17,8 +17,8 @@ public class DatabaseController {
         this.databaseService = databaseService;
     }
 
-    @RequestMapping(value = "/insert",method = RequestMethod.POST)
-    public String insertDatabase(@ModelAttribute(value = "database") @RequestBody DatabaseRequest databaseRequest){
+    @RequestMapping(value = "/insert",method = RequestMethod.GET,produces = "text/plain;charset=UTF-8")
+    public String insertDatabase(@ModelAttribute(value = "database") DatabaseRequest databaseRequest){
         databaseService.insert(databaseRequest);
         return "redirect:/admin/database";
     }
@@ -27,8 +27,8 @@ public class DatabaseController {
         databaseService.delete(id);
         return "redirect:/admin/database";
     }
-    @RequestMapping(value = "/update")
-    public String update(@ModelAttribute(value = "database") @RequestBody DatabaseRequest databaseRequest){
+    @RequestMapping(value = "/update",produces = "text/plain;charset=UTF-8")
+    public String update(@ModelAttribute(value = "database") DatabaseRequest databaseRequest){
         databaseService.update(databaseRequest,databaseRequest.getId());
         return "redirect:/admin/database";
     }

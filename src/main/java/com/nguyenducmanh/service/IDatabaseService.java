@@ -12,4 +12,5 @@ public interface IDatabaseService {
     Databases insert(DatabaseRequest databaseRequest);
     void delete(long id);
     void update(DatabaseRequest databaseRequest,long id);
+    Databases findDatabasesByName(String name);
 }

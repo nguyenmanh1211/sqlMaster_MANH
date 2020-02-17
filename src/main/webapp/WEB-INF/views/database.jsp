@@ -32,7 +32,7 @@
                     a = response.tutorial
 
                     $('#content').html(a);
-                    // document.getElementById("content").innerHTML = a;
+                    document.getElementById("content").innerHTML = a;
 
 
                 },
@@ -55,14 +55,13 @@
 <div class="fixed-top">
     <section>
         <%@include file="user/menu.jsp" %>
-
     </section>
 </div>
 <!-- main -->
 
 <div class="container-fluid main" id="col">
     <div class="row">
-        <div class="col-2 scroll">
+        <div class="cola scroll">
             <!-- slidebar -->
             <ul class="sidebar navbar-nav">
                 <li class="nav-item dropdown submenu" id="lia">
@@ -73,11 +72,9 @@
                     </c:forEach>
                 </li>
             </ul>
-
         </div>
     </div>
     <div class="col-10 ml-auto content">
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12" data-spy="scroll" data-target="#list" data-offset="0" id="content">
@@ -86,8 +83,10 @@
             </div>
         </div>
     </div>
+
     <!-- End content -->
 </div>
+
 
 </body>
 </html>

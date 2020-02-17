@@ -13,30 +13,34 @@ import java.util.List;
 public class LessonController {
 
     private ILessonService iLessonService;
-
+    private IDatabaseService databaseService;
 
     @Autowired
-    public LessonController(ILessonService iLessonService) {
+    public LessonController(ILessonService iLessonService,IDatabaseService databaseService) {
         this.iLessonService = iLessonService;
+        this.databaseService = databaseService;
     }
 
-    @RequestMapping(value = "/database",method = RequestMethod.GET)
-    public ModelAndView findLessonByDatabase(@RequestParam String databaseName){
+    @RequestMapping(value = "/database", method = RequestMethod.GET)
+    public ModelAndView findLessonByDatabase(@RequestParam String databaseName) {
         ModelAndView mav = new ModelAndView("database");
-        List<Lesson> lessons= iLessonService.findLessonByDatabases(databaseName);
-        mav.addObject("lessons",lessons);
+        List<Lesson> lessons = iLessonService.findLessonByDatabases(databaseName);
+        mav.addObject("lessons", lessons);
         return mav;
     }
-    @RequestMapping(value = "/api",method = RequestMethod.GET)
-    public Lesson getLesson(@RequestParam(value = "id") Long id){
-        ModelAndView mav=new ModelAndView("properties");
+
+    @RequestMapping(value = "/api", method = RequestMethod.GET)
+    public Lesson getLesson(@RequestParam(value = "id") Long id) {
         Lesson lessonProperties = iLessonService.findOne(id);
         return lessonProperties;
     }
 
-    @RequestMapping(value = "/apix" ,method = RequestMethod.GET)
-    public List<Lesson> getLessonByDatabase(@RequestParam(value = "databaseName") String databaseName){
+    @RequestMapping(value = "/apix", method = RequestMethod.GET)
+    public List<Lesson> getLessonByDatabase(@RequestParam(value = "databaseName") String databaseName) {
         List<Lesson> lessons = iLessonService.findLessonByDatabases(databaseName);
         return lessons;
     }
+
+
+
 }

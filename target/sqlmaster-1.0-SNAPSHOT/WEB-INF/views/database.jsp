@@ -32,7 +32,7 @@
                     a = response.tutorial
 
                     $('#content').html(a);
-                    // document.getElementById("content").innerHTML = a;
+                    document.getElementById("content").innerHTML = a;
 
 
                 },
@@ -62,7 +62,7 @@
 
 <div class="container-fluid main" id="col">
     <div class="row">
-        <div class="col-2 scroll">
+        <div class="cola scroll">
             <!-- slidebar -->
             <ul class="sidebar navbar-nav">
                 <li class="nav-item dropdown submenu" id="lia">
@@ -89,5 +89,7 @@
     <!-- End content -->
 </div>
 
+
 </body>
+<div class="card-footer"><%@include file="user/footer.jsp"%></div>
 </html>
