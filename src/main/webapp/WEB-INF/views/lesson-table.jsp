@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: MANH
+  Date: 2/14/2020
+  Time: 8:26 AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@include file="/common/taglib.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
@@ -98,28 +105,34 @@
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">Data Table</strong>
-                            <a href="/admin/createDBpage" ><button style="float: right" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; ADD</button></a>
+                            <a href="/admin/createLsPage?id=${database.id}" ><button style="float: right" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>&nbsp; ADD</button></a>
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Database Name</th>
+                                    <th>Lesson Name</th>
+<%--                                    <th>Tutorial</th>--%>
+                                    <th>Database</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody class="data_table">
-                                <c:forEach items="${list}" var="item">
+                                <c:forEach items="${lessons}" var="lesson">
 
                                     <tr>
-                                        <td>${item.id}</td>
-                                        <td>${item.name}</td>
+                                        <td>${lesson.id}</td>
+                                        <td>${lesson.nameLesson}</td>
+<%--                                        <td class="text-flow"><p>${lesson.tutorial}</p></td>--%>
+                                        <td>${database.name}</td>
                                         <td>
-                                            <a href="/admin/updateDBpage?id=${item.id}&name=${item.name}" class="fa fa-pencil"></a>
-                                            <a href="/api/delete/${item.id}" class="fa fa-trash" onclick="return confirm('Bạn có muốn xóa không?')"></a>
+                                            <a href="#" class="fa fa-eye"></a>
+                                            <a href="/admin/updateLsPage?id=${lesson.id}" class="fa fa-pencil"></a>
+                                            <a onclick="return confirm('Bạn có muốn xóa không?')" href="/del?id=${lesson.id}" class="fa fa-trash"></a>
                                         </td>
                                     </tr>
+
                                 </c:forEach>
                                 </tbody>
                             </table>
@@ -128,6 +141,8 @@
                 </div>
             </div>
         </div>
+
+
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
 
@@ -163,4 +178,3 @@
 
 </body>
 </html>
-
