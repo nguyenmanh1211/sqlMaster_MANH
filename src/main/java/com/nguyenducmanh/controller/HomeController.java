@@ -1,5 +1,7 @@
 package com.nguyenducmanh.controller;
 
+import com.nguyenducmanh.entity.Contact;
+import com.nguyenducmanh.service.IContactService;
 import com.nguyenducmanh.service.IDatabaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -19,6 +21,8 @@ public class HomeController {
 
     @Autowired
     private IDatabaseService databaseService;
+    @Autowired
+    private IContactService contactService;
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() {
@@ -40,5 +44,17 @@ public class HomeController {
 
         return "redirect:/login";
     }
+    @GetMapping("/contact")
+    public ModelAndView contact(){
+        ModelAndView mav=new ModelAndView("contact");
+        Contact contact = contactService.findOne();
+        mav.addObject("contact",contact);
+        return mav;
+    }
+
+//    @GetMapping("/feedback")
+//    public ModelAndView feedback(){
+//        return new ModelAndView("feedback");
+//    }
 
 }
